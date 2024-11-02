@@ -1,0 +1,140 @@
+.node-container {
+    border: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    transition: height 0.3s ease, width 0.3s ease;
+}
+
+.node-container:focus-within {
+    outline: 3px solid #C8A2C8;
+    font-weight: bold;
+}
+
+.node-header {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    box-sizing: border-box;
+    font-size: 14px;
+    resize: none;
+    overflow: hidden;
+    transition: height 0.3s ease, width 0.3s ease;
+}
+
+/* Dropdown styles */
+.custom-dropdown {
+    position: relative;
+    width: 100%; /* Ensures it takes full width */
+    margin: 5px 0;
+}
+
+.custom-select {
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 24px;
+    transition: border-radius 0.3s ease;
+}
+
+.custom-dropdown.open .custom-select {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.custom-select:focus {
+    border-color: #C8A2C8;
+}
+
+/* Dropdown options container with slide-down effect */
+.dropdown-options {
+    position: absolute;
+    top: calc(100%);
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px); /* Start from above */
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease, border-radius 0.3s ease;
+}
+
+/* When dropdown is open */
+.custom-dropdown.open .dropdown-options {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-option {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}
+.node-container {
+    position: relative; /* Important for absolute positioning of handles */
+    border: none;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    transition: height 0.3s ease, width 0.3s ease;
+  }
+  
+  .node-header {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .handle {
+    position: absolute; /* Ensure absolute positioning for the handles */
+    width: 10px; /* Example width */
+    height: 10px; /* Example height */
+    background: #007bff; /* Example handle color */
+    border-radius: 50%; /* Circular handles */
+    transform: translateY(-50%); /* Center vertically */
+  }
+  
+  .handle.target {
+    left: -10px; /* Position on the left */
+  }
+  
