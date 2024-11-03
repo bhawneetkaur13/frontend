@@ -63,6 +63,7 @@ export const BaseNode = ({
 
   const createHandleFromText = useCallback(
     (text) => {
+      if (!text) return; // Early exit if text is undefined or null
       const matches = text.match(/{{\s*[\w]+\s*}}/g);
       if (matches) {
         const handles = matches.map((match, index) => ({
@@ -78,11 +79,12 @@ export const BaseNode = ({
         updateNodeField(id, 'handles', []);
       }
     },
-    [id, updateNodeField] // Add id and updateNodeField to dependencies
+    [id, updateNodeField]
   );
-  
 
-  const handleDelete = () => { deleteNode(id); };
+  const handleDelete = () => {
+    deleteNode(id);
+  };
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -93,9 +95,9 @@ export const BaseNode = ({
 
   useEffect(() => {
     adjustNodeSize();
-    createHandleFromText(currName);
-  }, [currName, currText, createHandleFromText]); // Added createHandleFromText to the dependency array
-  
+    createHandleFromText(currName); // Ensure currName is valid
+  }, [currName, currText, createHandleFromText]);
+
   return (
     <div className="node-container" ref={nodeRef}>
       <div className="node-header">

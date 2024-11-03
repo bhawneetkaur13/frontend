@@ -51,4 +51,38 @@ export const useStore = create((set, get) => ({
       }),
     });
   },
+  updateCalculationNode: (nodeId, num1, num2, operation) => {
+    set({
+      nodes: get().nodes.map((node) => {
+        if (node.id === nodeId) {
+          node.data = { ...node.data, num1, num2, operation };
+        }
+        return node;
+      }),
+    });
+  },
+updateDisplayValue: (nodeId, value) => {
+  set({
+    nodes: get().nodes.map((node) => {
+      if (node.id === nodeId) {
+        node.data = { ...node.data, value };
+      }
+      return node;
+    }),
+  });
+},
+updateConditionalNode: (nodeId, selectedOption) => {
+  set({
+    nodes: get().nodes.map((node) => {
+      if (node.id === nodeId) {
+        node.data = { ...node.data, selectedOption };
+      }
+      return node;
+    }),
+  });
+},
+
+  
 }));
+
+export default useStore
